@@ -8,9 +8,9 @@ namespace ScheduleGenerator
         {
             MonthDays month = new MonthDays();
             string[] monthsWeekDays = month.getNextMonthDays();
-            foreach (var day in monthsWeekDays)
-            
+
             // Test
+            foreach (var day in monthsWeekDays)
             {
                 Console.WriteLine(day);
             }
