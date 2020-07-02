@@ -6,7 +6,14 @@ namespace ScheduleGenerator
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            MonthDays month = new MonthDays();
+            string[] monthsWeekDays = month.getNextMonthDays();
+            foreach (var day in monthsWeekDays)
+            
+            // Test
+            {
+                Console.WriteLine(day);
+            }
         }
     }
 }
