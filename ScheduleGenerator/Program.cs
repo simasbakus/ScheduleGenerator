@@ -7,25 +7,19 @@ namespace ScheduleGenerator
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             /*MonthDays month = new MonthDays();
             string[] monthsWeekDays = month.getNextMonthDays();
 
-            // Test
+            // Tests
             foreach (var day in monthsWeekDays)
             {
                 Console.WriteLine(day);
             }*/
 
-
-            string path = "C:/Users/simas/OneDrive/Documents/Programavimas/ScheduleGenerator/ScheduleGenerator/Employees.json";
-
-            EmployeesList employeesList = JsonConvert.DeserializeObject<EmployeesList>(new StreamReader(path).ReadToEnd());
-            
-            
-
-            Console.WriteLine(employeesList.employee.Count);
+            //JsonParser jsonparser = new JsonParser();
+            //jsonparser.test();
         }
     }
 }
