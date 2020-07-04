@@ -7,7 +7,9 @@ C:\Users\simas\OneDrive\Documents\Programavimas\ScheduleGenerator\ScheduleGenera
 C:\Users\simas\OneDrive\Documents\Programavimas\ScheduleGenerator\ScheduleGenerator\obj\Debug\netcoreapp3.1\ScheduleGenerator.csprojAssemblyReference.cache
 C:\Users\simas\OneDrive\Documents\Programavimas\ScheduleGenerator\ScheduleGenerator\obj\Debug\netcoreapp3.1\ScheduleGenerator.AssemblyInfoInputs.cache
 C:\Users\simas\OneDrive\Documents\Programavimas\ScheduleGenerator\ScheduleGenerator\obj\Debug\netcoreapp3.1\ScheduleGenerator.AssemblyInfo.cs
-C:\Users\simas\OneDrive\Documents\Programavimas\ScheduleGenerator\ScheduleGenerator\obj\Debug\netcoreapp3.1\ScheduleGenerator.csproj.CoreCompileInputs.cache
 C:\Users\simas\OneDrive\Documents\Programavimas\ScheduleGenerator\ScheduleGenerator\obj\Debug\netcoreapp3.1\ScheduleGenerator.dll
 C:\Users\simas\OneDrive\Documents\Programavimas\ScheduleGenerator\ScheduleGenerator\obj\Debug\netcoreapp3.1\ScheduleGenerator.pdb
 C:\Users\simas\OneDrive\Documents\Programavimas\ScheduleGenerator\ScheduleGenerator\obj\Debug\netcoreapp3.1\ScheduleGenerator.genruntimeconfig.cache
+C:\Users\simas\OneDrive\Documents\Programavimas\ScheduleGenerator\ScheduleGenerator\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\simas\OneDrive\Documents\Programavimas\ScheduleGenerator\ScheduleGenerator\obj\Debug\netcoreapp3.1\ScheduleGenerator.csproj.CoreCompileInputs.cache
+C:\Users\simas\OneDrive\Documents\Programavimas\ScheduleGenerator\ScheduleGenerator\obj\Debug\netcoreapp3.1\ScheduleGenerator.csproj.CopyComplete

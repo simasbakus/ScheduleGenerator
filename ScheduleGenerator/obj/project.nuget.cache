@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "AWI/r9qb2D6tW0OO+qFEujmW3hRsE9dXHi/kjALqz/SswHN2ib5KqXWn5ke9vNMGR5yj9TTJGDZl99co+V7l3A==",
+  "dgSpecHash": "bAJSf+Xq1wA2UQ2gSGlcby0p0bv1kIgbB3KL5WpMejjnnQCqUyxJjEfw5Z3yINS+PD/iafxm1IsBLgB0DdTPKg==",
   "success": true,
   "projectFilePath": "C:\\Users\\simas\\OneDrive\\Documents\\Programavimas\\ScheduleGenerator\\ScheduleGenerator\\ScheduleGenerator.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\simas\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
   "logs": []
 }
