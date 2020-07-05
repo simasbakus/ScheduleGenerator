@@ -18,8 +18,8 @@ namespace ScheduleGenerator
                 Console.WriteLine(day);
             }*/
 
-            //JsonParser jsonparser = new JsonParser();
-            //jsonparser.test();
+            EmployeesList employeesList = new EmployeesList();
+            employeesList.test();
         }
     }
 }
