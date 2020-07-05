@@ -8,10 +8,37 @@
     ".NETCoreApp,Version=v3.1": {
       "ScheduleGenerator/1.0.0": {
         "dependencies": {
+          "Microsoft.Office.Interop.Excel": "15.0.4795.1000",
+          "Microsoft.Office.Interop.Word": "15.0.4797.1003",
+          "Nager.Date": "1.26.2",
           "Newtonsoft.Json": "12.0.3"
         },
         "runtime": {
           "ScheduleGenerator.dll": {}
+        }
+      },
+      "Microsoft.Office.Interop.Excel/15.0.4795.1000": {
+        "runtime": {
+          "lib/net20/Microsoft.Office.Interop.Excel.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "15.0.4795.1000"
+          }
+        }
+      },
+      "Microsoft.Office.Interop.Word/15.0.4797.1003": {
+        "runtime": {
+          "lib/net20/Microsoft.Office.Interop.Word.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "15.0.4797.1003"
+          }
+        }
+      },
+      "Nager.Date/1.26.2": {
+        "runtime": {
+          "lib/netstandard2.0/Nager.Date.dll": {
+            "assemblyVersion": "1.26.2.0",
+            "fileVersion": "1.26.2.0"
+          }
         }
       },
       "Newtonsoft.Json/12.0.3": {
@@ -29,6 +56,27 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Microsoft.Office.Interop.Excel/15.0.4795.1000": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-DfceS96ustwfL8EOJNNRtpk6b0RylhjNpgeeemuvi9X4GYks2UTeAimjSrdFEfuqRo5ibZ4Sd0gJIeDr9gMa6Q==",
+      "path": "microsoft.office.interop.excel/15.0.4795.1000",
+      "hashPath": "microsoft.office.interop.excel.15.0.4795.1000.nupkg.sha512"
+    },
+    "Microsoft.Office.Interop.Word/15.0.4797.1003": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-p22pljmHaQjDxNLqO+uO5vi3y0TK5t1mAtSAg93K28/e12Hw3qzfflAo6XHvNXxnvz9HZGv59vLCwIaC9xbXNQ==",
+      "path": "microsoft.office.interop.word/15.0.4797.1003",
+      "hashPath": "microsoft.office.interop.word.15.0.4797.1003.nupkg.sha512"
+    },
+    "Nager.Date/1.26.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kpbzE1Kj/ZoUFu9oyYghCsd3YzXGkT4aDbMv8F4pmNFdzyqf8dQsvHtitLwGJfuUt3/q4mKPe2SwDk+oCXMXAg==",
+      "path": "nager.date/1.26.2",
+      "hashPath": "nager.date.1.26.2.nupkg.sha512"
     },
     "Newtonsoft.Json/12.0.3": {
       "type": "package",

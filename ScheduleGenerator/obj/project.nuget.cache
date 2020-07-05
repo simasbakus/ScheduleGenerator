@@ -1,10 +1,34 @@
 {
   "version": 2,
-  "dgSpecHash": "bAJSf+Xq1wA2UQ2gSGlcby0p0bv1kIgbB3KL5WpMejjnnQCqUyxJjEfw5Z3yINS+PD/iafxm1IsBLgB0DdTPKg==",
+  "dgSpecHash": "9LEvLqlCdaiauHSa+/IfWw3sS0p8dwvghRyWQ3xcsfukUytK8i0zR+X7mwNkBri+vRey6iNPsQGn3wOvY7zO9A==",
   "success": true,
   "projectFilePath": "C:\\Users\\simas\\OneDrive\\Documents\\Programavimas\\ScheduleGenerator\\ScheduleGenerator\\ScheduleGenerator.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\simas\\.nuget\\packages\\microsoft.office.interop.excel\\15.0.4795.1000\\microsoft.office.interop.excel.15.0.4795.1000.nupkg.sha512",
+    "C:\\Users\\simas\\.nuget\\packages\\microsoft.office.interop.word\\15.0.4797.1003\\microsoft.office.interop.word.15.0.4797.1003.nupkg.sha512",
+    "C:\\Users\\simas\\.nuget\\packages\\nager.date\\1.26.2\\nager.date.1.26.2.nupkg.sha512",
     "C:\\Users\\simas\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Office.Interop.Excel 15.0.4795.1000' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.Office.Interop.Excel",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Office.Interop.Word 15.0.4797.1003' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.Office.Interop.Word",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }

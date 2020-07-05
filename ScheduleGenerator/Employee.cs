@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Nager.Date;
+using System;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -21,31 +22,38 @@ namespace ScheduleGenerator
             int i = 0;
             foreach (var day in monthsWeekDays)
             {
-                switch (day)
+                if (DateSystem.IsPublicHoliday(new DateTime(month.nextMonth.Year, month.nextMonth.Month, i + 1), CountryCode.LT))
                 {
-                    case "Monday":
-                        schedule[i] = WorkingHours.Monday;
-                        break;
+                    schedule[i] = "P";
+                }
+                else
+                {
+                    switch (day)
+                    {
+                        case "Monday":
+                            schedule[i] = WorkingHours.Monday;
+                            break;
 
-                    case "Tuesday":
-                        schedule[i] = WorkingHours.Tuesday;
-                        break;
+                        case "Tuesday":
+                            schedule[i] = WorkingHours.Tuesday;
+                            break;
 
-                    case "Wednesday":
-                        schedule[i] = WorkingHours.Wednesday;
-                        break;
+                        case "Wednesday":
+                            schedule[i] = WorkingHours.Wednesday;
+                            break;
 
-                    case "Thursday":
-                        schedule[i] = WorkingHours.Thursday;
-                        break;
+                        case "Thursday":
+                            schedule[i] = WorkingHours.Thursday;
+                            break;
 
-                    case "Friday":
-                        schedule[i] = WorkingHours.Friday;
-                        break;
+                        case "Friday":
+                            schedule[i] = WorkingHours.Friday;
+                            break;
 
-                    default:
-                        schedule[i] = "P";
-                        break;
+                        default:
+                            schedule[i] = "P";
+                            break;
+                    }
                 }
                 i++;
             }

@@ -11,6 +11,10 @@ namespace ScheduleGenerator
         {
             EmployeesList employeesList = new EmployeesList();
             employeesList.test();
+
+            //ExcellGenerator excel = new ExcellGenerator();
+            //excel.generateExcel();
+
         }
     }
 }

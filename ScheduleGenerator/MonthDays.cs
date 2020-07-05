@@ -4,11 +4,10 @@ namespace ScheduleGenerator
 {
     public class MonthDays
     {
+        public System.DateTime nextMonth = DateTime.Now.AddMonths(1);
         public string[] getNextMonthDays()
         {
             //gets the next month's weekday calendar
-
-            var nextMonth = DateTime.Now.AddMonths(1);
 
             int daysInMonth = DateTime.DaysInMonth(nextMonth.Year, nextMonth.Month);
 
