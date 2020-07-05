@@ -22,7 +22,7 @@ namespace ScheduleGenerator
                 oDoc.PageSetup.Orientation = _Word.WdOrientation.wdOrientLandscape;
 
 
-                //----------------Creates a table-----------------//
+                //--------------------Inserts a table------------------------//
                 _Word.Range tableLocation = oDoc.Range(0, 0);
 
                 Table table = oDoc.Tables.Add(tableLocation, 9, 20);
@@ -31,9 +31,10 @@ namespace ScheduleGenerator
                 table.Borders.OutsideLineStyle = WdLineStyle.wdLineStyleSingle;
 
 
-                //----------------Saves the document-----------------//
+                //----------------Saves the document and opens it-----------------//
                 wordApp.ActiveDocument.SaveAs2("TestForScheduleGenerator");
-                Console.WriteLine("Document was saved successfuly!!!");
+                wordApp.Visible = true;
+                oDoc.Activate();
             }
             catch (Exception)
             {
