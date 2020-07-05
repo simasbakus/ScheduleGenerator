@@ -8,29 +8,12 @@
     ".NETCoreApp,Version=v3.1": {
       "ScheduleGenerator/1.0.0": {
         "dependencies": {
-          "Microsoft.Office.Interop.Excel": "15.0.4795.1000",
-          "Microsoft.Office.Interop.Word": "15.0.4797.1003",
           "Nager.Date": "1.26.2",
-          "Newtonsoft.Json": "12.0.3"
+          "Newtonsoft.Json": "12.0.3",
+          "Interop.Microsoft.Office.Interop.Word": "8.7.0.0"
         },
         "runtime": {
           "ScheduleGenerator.dll": {}
-        }
-      },
-      "Microsoft.Office.Interop.Excel/15.0.4795.1000": {
-        "runtime": {
-          "lib/net20/Microsoft.Office.Interop.Excel.dll": {
-            "assemblyVersion": "15.0.0.0",
-            "fileVersion": "15.0.4795.1000"
-          }
-        }
-      },
-      "Microsoft.Office.Interop.Word/15.0.4797.1003": {
-        "runtime": {
-          "lib/net20/Microsoft.Office.Interop.Word.dll": {
-            "assemblyVersion": "15.0.0.0",
-            "fileVersion": "15.0.4797.1003"
-          }
         }
       },
       "Nager.Date/1.26.2": {
@@ -48,6 +31,14 @@
             "fileVersion": "12.0.3.23909"
           }
         }
+      },
+      "Interop.Microsoft.Office.Interop.Word/8.7.0.0": {
+        "runtime": {
+          "Interop.Microsoft.Office.Interop.Word.dll": {
+            "assemblyVersion": "8.7.0.0",
+            "fileVersion": "8.7.0.0"
+          }
+        }
       }
     }
   },
@@ -56,20 +47,6 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
-    },
-    "Microsoft.Office.Interop.Excel/15.0.4795.1000": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-DfceS96ustwfL8EOJNNRtpk6b0RylhjNpgeeemuvi9X4GYks2UTeAimjSrdFEfuqRo5ibZ4Sd0gJIeDr9gMa6Q==",
-      "path": "microsoft.office.interop.excel/15.0.4795.1000",
-      "hashPath": "microsoft.office.interop.excel.15.0.4795.1000.nupkg.sha512"
-    },
-    "Microsoft.Office.Interop.Word/15.0.4797.1003": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-p22pljmHaQjDxNLqO+uO5vi3y0TK5t1mAtSAg93K28/e12Hw3qzfflAo6XHvNXxnvz9HZGv59vLCwIaC9xbXNQ==",
-      "path": "microsoft.office.interop.word/15.0.4797.1003",
-      "hashPath": "microsoft.office.interop.word.15.0.4797.1003.nupkg.sha512"
     },
     "Nager.Date/1.26.2": {
       "type": "package",
@@ -84,6 +61,11 @@
       "sha512": "sha512-6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
       "path": "newtonsoft.json/12.0.3",
       "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
+    },
+    "Interop.Microsoft.Office.Interop.Word/8.7.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

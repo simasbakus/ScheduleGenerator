@@ -9,11 +9,11 @@ namespace ScheduleGenerator
     {
         static void Main()
         {
-            EmployeesList employeesList = new EmployeesList();
-            employeesList.test();
+            //EmployeesList employeesList = new EmployeesList();
+            //employeesList.test();
 
-            //ExcellGenerator excel = new ExcellGenerator();
-            //excel.generateExcel();
+            WordGenerator word = new WordGenerator();
+            word.generateWord();
 
         }
     }
