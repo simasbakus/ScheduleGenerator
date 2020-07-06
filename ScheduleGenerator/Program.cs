@@ -9,12 +9,8 @@ namespace ScheduleGenerator
     {
         static void Main()
         {
-            //EmployeesList employeesList = new EmployeesList();
-            //employeesList.test();
-
             WordGenerator word = new WordGenerator();
             word.generateWord();
-
         }
     }
 }
