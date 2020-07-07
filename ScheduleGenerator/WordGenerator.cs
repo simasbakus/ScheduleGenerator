@@ -29,22 +29,37 @@ namespace ScheduleGenerator
 
             //-----------------First page---------------------------//
 
-            _Word.Range tableLocation = oDoc.Range(0, 0);
+            _Word.Range table1Location = oDoc.Range(0, 0);
 
-            Table table1 = oDoc.Tables.Add(tableLocation, employeesList.Employees.Count + 1, 20);
+            Table table1;
+
+            table1 = oDoc.Tables.Add(table1Location, employeesList.Employees.Count + 1, 20);
 
             table1.Borders.InsideLineStyle = WdLineStyle.wdLineStyleSingle;
             table1.Borders.OutsideLineStyle = WdLineStyle.wdLineStyleSingle;
 
 
             //----------Page break-------------------//
+
             oDoc.Words.Last.InsertBreak(_Word.WdBreakType.wdPageBreak);
 
+
+            //----------------Definening the table2 location----------------//
+
+            object objEndOfDocFlag = "\\endofdoc";
+            _Word.Range table2Location = oDoc.Bookmarks.get_Item(ref objEndOfDocFlag).Range;
+
             //-----------------Second page-------------------------//
-            
+
+            Table table2;
+
+            table2 = oDoc.Tables.Add(table2Location, employeesList.Employees.Count + 1, monthsWeekDays.Length - 12);
+
+            table2.Borders.InsideLineStyle = WdLineStyle.wdLineStyleSingle;
+            table2.Borders.OutsideLineStyle = WdLineStyle.wdLineStyleSingle;
 
             //---------------Sets the height and width of table cells-----------//
-
+            //-------------Table1---------------------//
             table1.Columns[1].PreferredWidth = wordApp.CentimetersToPoints(1.0f);
             table1.Columns[2].PreferredWidth = wordApp.CentimetersToPoints(2.5f);
             table1.Columns[3].PreferredWidth = wordApp.CentimetersToPoints(2.5f);
@@ -55,7 +70,7 @@ namespace ScheduleGenerator
             }
 
             table1.Rows[1].Height = wordApp.CentimetersToPoints(1.8f);
-            for (int i = 2; i < 10; i++)
+            for (int i = 2; i <= employeesList.Employees.Count + 1; i++)
             {
                 table1.Rows[i].Height = wordApp.CentimetersToPoints(1.15f);
             }
@@ -63,18 +78,50 @@ namespace ScheduleGenerator
 
             table1.Range.Font.Size = 10;
 
+            //-------------Table2---------------------//
+            table2.Columns[1].PreferredWidth = wordApp.CentimetersToPoints(1.0f);
+            table2.Columns[2].PreferredWidth = wordApp.CentimetersToPoints(2.5f);
+            table2.Columns[3].PreferredWidth = wordApp.CentimetersToPoints(2.5f);
+            table2.Columns[4].PreferredWidth = wordApp.CentimetersToPoints(1.6f);
+            for (int i = 5; i <= monthsWeekDays.Length - 12; i++)
+            {
+                table2.Columns[i].PreferredWidth = wordApp.CentimetersToPoints(1.15f);
+            }
+
+            table2.Rows[1].Height = wordApp.CentimetersToPoints(1.8f);
+            for (int i = 2; i <= employeesList.Employees.Count + 1; i++)
+            {
+                table2.Rows[i].Height = wordApp.CentimetersToPoints(1.15f);
+            }
+
+
+            table2.Range.Font.Size = 10;
+
             //-----------------Populates the table----------------------------//
 
             //----------------First page------------------------------//
 
             //--------Default values-------------------//
             table1.Cell(1, 1).Range.Text = "Eil. Nr.";
+            table2.Cell(1, 1).Range.Text = "Eil. Nr.";
             table1.Cell(1, 2).Range.Text = "Vardas, Pavarde";
+            table2.Cell(1, 2).Range.Text = "Vardas, Pavarde";
             table1.Cell(1, 3).Range.Text = "Pareigos";
+            table2.Cell(1, 3).Range.Text = "Pareigos";
             table1.Cell(1, 4).Range.Text = "Nustat. Darbo val. sk.";
-            for (int d = 5; d < 21; d++)
+            table2.Cell(1, 4).Range.Text = "Nustat. Darbo val. sk.";
+            int d = 5;
+            foreach (var day in monthsWeekDays)
             {
-                table1.Cell(1, d).Range.Text = (d - 4).ToString();
+                if (d < 21)
+                {
+                    table1.Cell(1, d).Range.Text = (d - 4).ToString();
+                }
+                else
+                {
+                    table2.Cell(1, d - 16).Range.Text = (d - 4).ToString();
+                }
+                d++;
             }
 
             //------------Data from EmployeesList-----------------//
@@ -84,16 +131,22 @@ namespace ScheduleGenerator
                 table1.Cell(row, 1).Range.Text = (row - 1).ToString();
                 table1.Cell(row, 2).Range.Text = employee.Name;
                 table1.Cell(row, 3).Range.Text = employee.Position;
+                table2.Cell(row, 1).Range.Text = (row - 1).ToString();
+                table2.Cell(row, 2).Range.Text = employee.Name;
+                table2.Cell(row, 3).Range.Text = employee.Position;
                 string[] employeeSchedule = employee.getMonthSchedule();
                 int col = 5;
                 foreach (var dayHours in employeeSchedule)
                 {
-                    table1.Cell(row, col).Range.Text = dayHours;
-                    col++;
-                    if (col > 20)
+                    if (col <= 20)
                     {
-                        break;
+                        table1.Cell(row, col).Range.Text = dayHours;
                     }
+                    else
+                    {
+                        table2.Cell(row, col - 16).Range.Text = dayHours;
+                    }
+                    col++;
                 }
                 col = 5;
                 row++;
