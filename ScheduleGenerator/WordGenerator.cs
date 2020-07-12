@@ -2,6 +2,8 @@
 using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Net.WebSockets;
 using System.Text;
 using _Word = Microsoft.Office.Interop.Word;
 
@@ -17,6 +19,7 @@ namespace ScheduleGenerator
 
             //---Creates a document and sets orientation to landscape---//
             var wordApp = new _Word.Application();
+            wordApp.Visible = false;
 
             object oMissing = System.Reflection.Missing.Value;
 
@@ -24,16 +27,57 @@ namespace ScheduleGenerator
 
             oDoc.PageSetup.Orientation = _Word.WdOrientation.wdOrientLandscape;
 
+            //-----------------Set Margins------------------------//
 
-            //--------------------Inserts a table with borders----------------//
+            oDoc.PageSetup.TopMargin = wordApp.CentimetersToPoints(1.5f);
 
-            //-----------------First page---------------------------//
+            //-------------------Adding header text in page one-------------------------//
 
-            _Word.Range table1Location = oDoc.Range(0, 0);
+            _Word.Paragraph text1;
+
+            text1 = oDoc.Content.Paragraphs.Add();
+            text1.Range.Text = "UAB G. Tarnauskienes odontologijos klinika \t\t\t\tTvirtinu: G. Tarnauskiene";
+            text1.Range.Font.Bold = 1;
+            text1.Range.Font.Size = 14;
+            text1.Range.Font.Name = "Times New Roman";
+
+            //-------sets different font from 43 char-----//
+            object diffFontStart = text1.Range.Start + 43;
+            object diffFontEnd = text1.Range.End;
+            _Word.Range diffFontRng = oDoc.Range(ref diffFontStart, ref diffFontEnd);
+            diffFontRng.Font.Bold = 0;
+            diffFontRng.Font.Size = 12;
+            //-----------------------------------------------//
+
+            text1.Format.SpaceAfter = 24;
+            text1.Range.InsertParagraphAfter();
+
+            _Word.Paragraph text2;
+
+            text2 = oDoc.Content.Paragraphs.Add();
+            text2.Range.Text = "\t\t\t Darbo grafikas Nr. " + month.nextMonth.Month + "\t\t\t\t" + DateTime.Today.ToShortDateString();
+            text2.Range.Font.Bold = 0;
+            text2.Format.SpaceAfter = 1;
+            text2.Format.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+            text2.Range.InsertParagraphAfter();
+
+            _Word.Paragraph text3;
+
+            text3 = oDoc.Content.Paragraphs.Add();
+            text3.Range.Text = "\t\t\t " + month.nextMonth.Year + "m. " + MonthNameInLT() + " men.";
+            text3.Range.Font.Size = 12;
+            text3.Format.SpaceAfter = 6;
+            text3.Range.InsertParagraphAfter();
+
+            //-------------------------table1-----------------------------//
+
+            object start = oDoc.Content.End - 1;
+            object end = oDoc.Content.End;
+            _Word.Range rng = oDoc.Range(start, end);
 
             Table table1;
 
-            table1 = oDoc.Tables.Add(table1Location, employeesList.Employees.Count + 1, 20);
+            table1 = oDoc.Tables.Add(rng, employeesList.Employees.Count + 1, 20);
 
             table1.Borders.InsideLineStyle = WdLineStyle.wdLineStyleSingle;
             table1.Borders.OutsideLineStyle = WdLineStyle.wdLineStyleSingle;
@@ -44,19 +88,39 @@ namespace ScheduleGenerator
             oDoc.Words.Last.InsertBreak(_Word.WdBreakType.wdPageBreak);
 
 
-            //----------------Definening the table2 location----------------//
+            //---------------------table2-----------------------------------------//
 
-            object objEndOfDocFlag = "\\endofdoc";
-            _Word.Range table2Location = oDoc.Bookmarks.get_Item(ref objEndOfDocFlag).Range;
-
-            //-----------------Second page-------------------------//
+            start = oDoc.Content.End - 1;
+            end = oDoc.Content.End;
+            rng = oDoc.Range(start, end);
 
             Table table2;
 
-            table2 = oDoc.Tables.Add(table2Location, employeesList.Employees.Count + 1, monthsWeekDays.Length - 12);
+            table2 = oDoc.Tables.Add(rng, employeesList.Employees.Count + 1, monthsWeekDays.Length - 12);
 
             table2.Borders.InsideLineStyle = WdLineStyle.wdLineStyleSingle;
             table2.Borders.OutsideLineStyle = WdLineStyle.wdLineStyleSingle;
+
+            //---------------------Adding text after table in page two------------//
+
+            _Word.Paragraph text4;
+
+            text4 = oDoc.Content.Paragraphs.Add();
+            text4.Range.Text = "Suderinta: darbuotoju atstove Vita Kazlauskaite";
+            text4.Range.Font.Size = 12;
+            text4.Format.SpaceBefore = 24;
+            text4.Format.SpaceAfter = 6;
+            text4.Range.InsertParagraphAfter();
+
+            _Word.Paragraph text5;
+
+            text5 = oDoc.Content.Paragraphs.Add();
+            text5.Range.Text = "Sudare: direktore Giedre Tarnauskiene";
+            text5.Range.Font.Size = 12;
+            text5.Format.SpaceBefore = 0;
+            text5.Format.SpaceAfter = 6;
+            text5.Range.InsertParagraphAfter();
+
 
             //---------------Sets the height and width of table cells-----------//
             //-------------Table1---------------------//
@@ -148,15 +212,15 @@ namespace ScheduleGenerator
                     }
                     col++;
                 }
-                col = 5;
                 row++;
             }
-            
+
 
             //----------------Saves the document and opens it-----------------//
             wordApp.ActiveDocument.SaveAs2("Grafikas_" + MonthNameInLT());
             wordApp.Visible = true;
             oDoc.Activate();
+            oDoc.ActiveWindow.View.ShowParagraphs = false;
         }
 
         public string MonthNameInLT()
@@ -164,18 +228,18 @@ namespace ScheduleGenerator
             MonthDays month = new MonthDays();
             string[] namesInLT = new string[]
             {   
-                "Sausis",
-                "Vasaris",
-                "Kovas",
-                "Balandis",
-                "Geguze",
-                "Birzelis",
-                "Liepa",
-                "Rugpjutis",
-                "Rugsejis",
-                "Spalis",
-                "Lapkritis",
-                "Gruodis"
+                "Sausio",
+                "Vasario",
+                "Kovo",
+                "Balandzio",
+                "Geguzes",
+                "Birzelio",
+                "Liepos",
+                "Rugpjucio",
+                "Rugsejo",
+                "Spalio",
+                "Lapkricio",
+                "Gruodzio"
             };
             return namesInLT[month.nextMonth.Month - 1];
 
