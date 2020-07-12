@@ -11,6 +11,8 @@ namespace ScheduleGenerator
         public string Name { get; set; }
         public string Position { get; set; }
 
+        public string SetHours { get; set; }
+
         public WorkingHours WorkingHours { get; set; } = new WorkingHours();
 
         public string[] getMonthSchedule()

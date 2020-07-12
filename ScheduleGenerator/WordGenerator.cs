@@ -195,9 +195,13 @@ namespace ScheduleGenerator
                 table1.Cell(row, 1).Range.Text = (row - 1).ToString();
                 table1.Cell(row, 2).Range.Text = employee.Name;
                 table1.Cell(row, 3).Range.Text = employee.Position;
+                table1.Cell(row, 4).Range.Text = employee.SetHours;
+                table1.Cell(row, 4).Range.Font.Size = 8;
                 table2.Cell(row, 1).Range.Text = (row - 1).ToString();
                 table2.Cell(row, 2).Range.Text = employee.Name;
                 table2.Cell(row, 3).Range.Text = employee.Position;
+                table2.Cell(row, 4).Range.Text = employee.SetHours;
+                table2.Cell(row, 4).Range.Font.Size = 8;
                 string[] employeeSchedule = employee.getMonthSchedule();
                 int col = 5;
                 foreach (var dayHours in employeeSchedule)
