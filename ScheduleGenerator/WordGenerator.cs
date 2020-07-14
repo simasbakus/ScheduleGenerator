@@ -36,7 +36,7 @@ namespace ScheduleGenerator
             _Word.Paragraph text1;
 
             text1 = oDoc.Content.Paragraphs.Add();
-            text1.Range.Text = "UAB G. Tarnauskienes odontologijos klinika \t\t\t\tTvirtinu: G. Tarnauskiene";
+            text1.Range.Text = "UAB G. " + employeesList.Employees[0].Name.Substring(7) + "s odontologijos klinika \t\t\t\tTvirtinu: G. " + employeesList.Employees[0].Name.Substring(7);
             text1.Range.Font.Bold = 1;
             text1.Range.Font.Size = 14;
             text1.Range.Font.Name = "Times New Roman";
@@ -58,7 +58,6 @@ namespace ScheduleGenerator
             text2.Range.Text = "\t\t\t Darbo grafikas Nr. " + month.nextMonth.Month + "\t\t\t\t" + DateTime.Today.ToShortDateString();
             text2.Range.Font.Bold = 0;
             text2.Format.SpaceAfter = 1;
-            text2.Format.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
             text2.Range.InsertParagraphAfter();
 
             _Word.Paragraph text3;
@@ -106,7 +105,7 @@ namespace ScheduleGenerator
             _Word.Paragraph text4;
 
             text4 = oDoc.Content.Paragraphs.Add();
-            text4.Range.Text = "Suderinta: darbuotoju atstove Vita Kazlauskaite";
+            text4.Range.Text = "Suderinta: darbuotoju atstove " + employeesList.Employees[5].Name;
             text4.Range.Font.Size = 12;
             text4.Format.SpaceBefore = 24;
             text4.Format.SpaceAfter = 6;
@@ -115,7 +114,7 @@ namespace ScheduleGenerator
             _Word.Paragraph text5;
 
             text5 = oDoc.Content.Paragraphs.Add();
-            text5.Range.Text = "Sudare: direktore Giedre Tarnauskiene";
+            text5.Range.Text = "Sudare: "+ employeesList.Employees[0].Position.ToLower() + " " + employeesList.Employees[0].Name;
             text5.Range.Font.Size = 12;
             text5.Format.SpaceBefore = 0;
             text5.Format.SpaceAfter = 6;
