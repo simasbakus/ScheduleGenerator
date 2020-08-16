@@ -26,7 +26,7 @@ namespace ScheduleGenerator
             {
                 if (DateSystem.IsPublicHoliday(new DateTime(month.nextMonth.Year, month.nextMonth.Month, i + 1), CountryCode.LT))
                 {
-                    schedule[i] = "P";
+                    schedule[i] = "S";
                 }
                 else
                 {
